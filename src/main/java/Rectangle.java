@@ -2,6 +2,7 @@ class Rectangle {
     //DATA FIELD (ATTRIBUTE)
     private double length;
     private double width;
+    private boolean filled;
 
     //CONSTRUCTORS
     //UNDERSTAND: These are the default values when no parameters are provided
@@ -9,11 +10,13 @@ class Rectangle {
     Rectangle(){
         setLength(4.0);
         setWidth(2.0);
+        setFilled(true);
     }
 
-    Rectangle(double length, double width){
+    Rectangle(double length, double width, boolean filled){
         setLength(length);
         setWidth(width);
+        setFilled(filled);
     }
 
     //GETTER METHODS
@@ -24,6 +27,10 @@ class Rectangle {
 
     double getWidth() {
         return width;
+    }
+
+    boolean isFilled(){
+        return filled;
     }
 
     //SETTER METHODS
@@ -41,10 +48,14 @@ class Rectangle {
     void setWidth(double width) {
         if (width <= 0){
             IO.println("Error! Width must be positive!");
-            IO.println("Length remains: " + this.width);
+            IO.println("Width remains: " + this.width);
             return;
         }
         this.width = width;
+    }
+
+    void setFilled(boolean filled) {
+        this.filled = filled;
     }
 
     //CALCULATE AREA METHOD
@@ -58,4 +69,28 @@ class Rectangle {
     double CalculatePerimeter(){
         return 2 * (length + width);
     }
+
+    void printRectangle(){
+        int w = (int) this.width;
+        int l = (int) this.length;
+
+        for(int y = 0; y < l; y++){
+            for(int x = 0; x < w; x++){
+                if (this.isFilled() ||  y == 0 || y == l -1 || x == 0 || x == w - 1){
+                    IO.print("* ");
+                } else {
+                    IO.print("  ");
+                }
+            }
+            IO.println();
+        }
+        IO.println();
+    }
+}
+
+void main() {
+    Rectangle r1 = new Rectangle(5.0, 10.0, false);
+    r1.printRectangle();
+    Rectangle r2 = new Rectangle(7.0, 3.0, true);
+    r2.printRectangle();
 }
