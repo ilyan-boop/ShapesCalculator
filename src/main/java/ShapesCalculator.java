@@ -62,8 +62,7 @@ public class ShapesCalculator {
                 continue;
             }
 
-            if (choice == 6) {
-                IO.println("Exiting application. Goodbye!");
+            if (choice == 6) {;
                 break;
             }
 
@@ -155,4 +154,94 @@ public class ShapesCalculator {
             }
         }
     }
-}
+
+    private static void run3DMenu(){
+            int choice = 0;
+            while (choice != 6) {
+                IO.println("\n=========================================");
+                IO.println("           3D SHAPES CALCULATOR          ");
+                IO.println("=========================================");
+                IO.println("1. Cube");
+                IO.println("2. Cuboid (Rectangular Parallelepiped)");
+                IO.println("3. Sphere");
+                IO.println("4. Right Circular Cone");
+                IO.println("5. Right Circular Cylinder");
+                IO.println("6. Back to Main Menu");
+                IO.println("=========================================");
+                IO.print("Enter your choice (1-6): ");
+
+                try {
+                    choice = Integer.parseInt(IO.readln().trim());
+                } catch (NumberFormatException e) {
+                    IO.println("Invalid input! Please enter a valid number.");
+                    continue;
+                }
+
+                if (choice == 6) {
+                    break;
+                }
+
+                if (choice < 1 || choice > 6) {
+                    IO.println("Invalid choice! Please pick a number from 1 to 6.");
+                    continue;
+                }
+
+                switch (choice) {
+                    case 1:
+                        IO.print("Enter side length of the cube: ");
+                        double side = Double.parseDouble(IO.readln().trim());
+                        Cube cube = new Cube(side);
+                        IO.println("\n--- CUBE RESULTS ---");
+                        IO.println("Side: " + String.format("%.2f", cube.getSide()));
+                        IO.println("Surface Area: " + String.format("%.2f", cube.calculateSurfaceArea()));
+                        IO.println("Volume: " + String.format("%.2f", cube.calculateVolume()));
+                        break;
+
+                    case 2:
+                        IO.print("Enter length: ");
+                        double length = Double.parseDouble(IO.readln().trim());
+                        IO.print("Enter width: ");
+                        double width = Double.parseDouble(IO.readln().trim());
+                        IO.print("Enter height: ");
+                        double height = Double.parseDouble(IO.readln().trim());
+                        Cuboid cuboid = new Cuboid(length, width, height);
+                        IO.println("\n--- CUBOID RESULTS ---");
+                        IO.println("Surface Area: " + String.format("%.2f", cuboid.calculateSurfaceArea()));
+                        IO.println("Volume: " + String.format("%.2f", cuboid.calculateVolume()));
+                        break;
+
+                    case 3:
+                        IO.print("Enter radius of the sphere: ");
+                        double radius = Double.parseDouble(IO.readln().trim());
+                        Sphere sphere = new Sphere(radius);
+                        IO.println("\n--- SPHERE RESULTS ---");
+                        IO.println("Surface Area: " + String.format("%.2f", sphere.calculateSurfaceArea()));
+                        IO.println("Volume: " + String.format("%.2f", sphere.calculateVolume()));
+                        break;
+
+                    case 4:
+                        IO.print("Enter radius of the cone base: ");
+                        double coneRadius = Double.parseDouble(IO.readln().trim());
+                        IO.print("Enter height of the cone: ");
+                        double coneHeight = Double.parseDouble(IO.readln().trim());
+                        RightCircularCone cone = new RightCircularCone(coneRadius, coneHeight);
+                        IO.println("\n--- CONE RESULTS ---");
+                        IO.println("Slant Height: " + String.format("%.2f", cone.calculateSlantHeight()));
+                        IO.println("Surface Area: " + String.format("%.2f", cone.calculateSurfaceArea()));
+                        IO.println("Volume: " + String.format("%.2f", cone.calculateVolume()));
+                        break;
+
+                    case 5:
+                        IO.print("Enter radius of the cylinder base: ");
+                        double cylRadius = Double.parseDouble(IO.readln().trim());
+                        IO.print("Enter height of the cylinder: ");
+                        double cylHeight = Double.parseDouble(IO.readln().trim());
+                        RightCircularCylinder cylinder = new RightCircularCylinder(cylRadius, cylHeight);
+                        IO.println("\n--- CYLINDER RESULTS ---");
+                        IO.println("Surface Area: " + String.format("%.2f", cylinder.calculateSurfaceArea()));
+                        IO.println("Volume: " + String.format("%.2f", cylinder.calculateVolume()));
+                        break;
+                }
+            }
+        }
+    }
