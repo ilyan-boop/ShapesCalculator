@@ -1,8 +1,43 @@
 public class ShapesCalculator {
-
     static void main(String[] args) {
-        IO.println("Welcome to the 2D Shapes Calculator App!");
+        IO.println("Welcome to the Geometry Shapes Calculator!");
 
+        int mainMenuChoice = 0;
+
+        while (mainMenuChoice != 3) {
+            IO.println("\n=========================================");
+            IO.println("               MAIN MENU                 ");
+            IO.println("=========================================");
+            IO.println("1. 2D Shapes Calculator");
+            IO.println("2. 3D Shapes Calculator");
+            IO.println("3. Exit");
+            IO.println("=========================================");
+            IO.print("Enter your choice (1-3): ");
+
+            try {
+                mainMenuChoice = Integer.parseInt(IO.readln().trim());
+            } catch (NumberFormatException e) {
+                IO.println("Invalid input! Please enter a valid number.");
+                continue;
+            }
+            if (mainMenuChoice == 3) {
+                IO.println("Exiting program. Goodbye!");
+                break;
+            }
+            if (mainMenuChoice < 1 || mainMenuChoice > 3) {
+                IO.println("Invalid input! Please enter a number from 1-3.");
+                continue;
+            }
+
+            if (mainMenuChoice == 1) {
+                run2DMenu();
+            } else if (mainMenuChoice == 2) {
+                run3DMenu();
+            }
+        }
+    }
+
+    private static void run2DMenu(){
         int choice = 0;
 
         //UNDERSTAND: While loop until user inputs 6 (exit)
@@ -107,6 +142,16 @@ public class ShapesCalculator {
                     double base = Double.parseDouble(IO.readln().trim());
                     IO.print("Enter height: ");
                     double triHeight = Double.parseDouble(IO.readln().trim());
+
+                    Triangle triangle = new Triangle(base, triHeight, filled);
+
+                    IO.println("\n--- TRIANGLE RESULTS ---");
+                    IO.println("Base: " + String.format("%.2f",triangle.getBase()));
+                    IO.println("Height: " + String.format("%.2f",triangle.getHeight()));
+                    IO.println("Area: " + String.format("%.2f",triangle.calculateArea()));
+                    IO.println("Perimeter: " + String.format("%.2f",triangle.calculatePerimeter()));
+                    triangle.printTriangle();
+                    break;
             }
         }
     }
