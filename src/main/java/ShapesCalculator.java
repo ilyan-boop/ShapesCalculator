@@ -44,14 +44,15 @@ public class ShapesCalculator {
 
             switch (choice) {
                 case 1: //UNDERSTAND: This is for the Square class
-                    IO.print("Enter the side of the squre: ");
+                    IO.print("Enter the side of the square: ");
                     double side = Double.parseDouble(IO.readln().trim());
 
                     Square square = new Square(side, filled);
 
                     IO.println("\n--- SQUARE RESULTS ---");
-                    IO.println("Area: " + square.CalculateArea());
-                    IO.println("Perimeter: " + square.CalculatePerimeter());
+                    IO.println("Side: " + String.format("%.2f",square.getSide()));
+                    IO.println("Area: " + String.format("%.2f",square.CalculateArea()));
+                    IO.println("Perimeter: " + String.format("%.2f",square.CalculatePerimeter()));
                     square.printSquare();
                     break;
 
@@ -63,17 +64,49 @@ public class ShapesCalculator {
 
                     Rectangle rectangle = new Rectangle(length, width, filled);
                     IO.println("\n--- RECTANGLE RESULTS ---");
-                    IO.println("Area: " + rectangle.CalculateArea());
-                    IO.println("Perimeter: " + rectangle.CalculatePerimeter());
+                    IO.println("Length: " + String.format("%.2f",rectangle.getLength()));
+                    IO.println("Width: " + String.format("%.2f",rectangle.getWidth()));
+                    IO.println("Area: " + String.format("%.2f",rectangle.CalculateArea()));
+                    IO.println("Perimeter: " + String.format("%.2f",rectangle.CalculatePerimeter()));
                     rectangle.printRectangle();
                     break;
 
-                case 3:
+                case 3://UNDERSTAND: This is for the Circle class
+                    IO.print("Enter radius: ");
+                    int radius = Integer.parseInt(IO.readln().trim());
+
+                    Circle circle = new Circle(radius, filled);
+
+                    IO.println("\n--- CIRCLE RESULTS ---");
+                    IO.println("Radius: " + String.format("%.2f",circle.getRadius()));
+                    IO.println("Area: " + String.format("%.2f",circle.CalculateArea()));
+                    IO.println("Circumference: " + String.format("%.2f",circle.CalculateCircumference()));
+                    circle.printCircle();
+                    break;
 
                 case 4:
+                    IO.print("Enter Semi-Major Axis (Horizontal Radius): ");
+                    double semiMajor = Double.parseDouble(IO.readln().trim());
+                    IO.print("Enter Semi-Minor Axis (Vertical Radius): ");
+                    double semiMinor = Double.parseDouble(IO.readln().trim());
 
+                    Ellipse ellipse = new Ellipse();
+                    ellipse.setSemiMajorAxis(semiMajor);
+                    ellipse.setSemiMinorAxis(semiMinor);
+                    ellipse.setFilled(filled);
+
+                    IO.println("\n--- ELLIPSE RESULTS ---");
+                    IO.println("Semi-Major (a): " + String.format("%.2f",ellipse.getSemiMajorAxis()));
+                    IO.println("Semi-Minor (b): " + String.format("%.2f",ellipse.getSemiMinorAxis()));
+                    IO.println("Area: " + String.format("%.2f",ellipse.CalculateArea()));
+                    IO.println("Perimeter (approx.): " + String.format("%.2f",ellipse.CalculatePerimeter()));
+                    ellipse.printEllipse();
+                    break;
                 case 5:
-
+                    IO.print("Enter base: ");
+                    double base = Double.parseDouble(IO.readln().trim());
+                    IO.print("Enter height: ");
+                    double triHeight = Double.parseDouble(IO.readln().trim());
             }
         }
     }
