@@ -46,4 +46,9 @@ public class RightCircularCone extends Shape implements Measurable3D {
     public double calculateVolume() {
         return (1.0 / 3.0) * Math.PI * radius * radius * height;
     }
+
+    @Override
+    public String toString(){
+        return "Cone [Color = " + super.getColor() + ", Radius = " + radius + ", Height = " +  height + "]";
+    }
 }

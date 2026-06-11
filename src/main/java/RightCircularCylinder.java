@@ -1,17 +1,14 @@
-class RightCircularCylinder {
+public class RightCircularCylinder extends Shape implements Measurable3D{
     //DATA FIELD
     private double radius;
     private double height;
     //CONSTRUCTORS
-    RightCircularCylinder() {
-        setRadius(5.0);
-        setHeight(5.0);
+    RightCircularCylinder(double radius, double height, String color) {
+        this.radius = radius;
+        this.height = height;
+        super(color);
     }
 
-    RightCircularCylinder(double radius, double height) {
-        setRadius(radius);
-        setHeight(height);
-    }
     //GETTERS
     double getRadius()
     { return radius;
@@ -36,11 +33,18 @@ class RightCircularCylinder {
         this.height = height;
     }
     //METHODS
-    double calculateSurfaceArea() {
+    @Override
+    public double calculateSurfaceArea() {
         return (2*Math.PI * radius) * (radius * height);
     }
 
-    double calculateVolume() {
+    @Override
+    public double calculateVolume() {
         return Math.PI * radius * radius * height;
+    }
+
+    @Override
+    public String toString(){
+        return "Cylinder [Color = " + color + ", Radius = " + radius + ", Height = " + height + "]";
     }
 }

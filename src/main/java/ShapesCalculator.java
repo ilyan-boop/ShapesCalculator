@@ -231,7 +231,7 @@ public class ShapesCalculator {
                         double cylRadius = Double.parseDouble(IO.readln().trim());
                         IO.print("Enter height of the cylinder: ");
                         double cylHeight = Double.parseDouble(IO.readln().trim());
-                        RightCircularCylinder cylinder = new RightCircularCylinder(cylRadius, cylHeight);
+                        RightCircularCylinder cylinder = new RightCircularCylinder(cylRadius, cylHeight, color);
                         IO.println("\n--- CYLINDER RESULTS ---");
 
                         break;
