@@ -84,7 +84,7 @@ public class Rectangle extends Shape implements Measurable2D {
     @Override
     public String toString() {
         // super.getColor() calls the getColor method inherited from Shape
-        return "Rectangle[Color = " + super.getColor() + ", Width = " + width + ", Length = " +  length + ", Filled = " + filled + "]";
+        return "Rectangle [Color = " + super.getColor() + ", Width = " + width + ", Length = " +  length + ", Filled = " + filled + "]";
     }
 }
 

@@ -83,12 +83,10 @@ public class ShapesCalculator {
                     IO.print("Enter the side of the square: ");
                     double side = Double.parseDouble(IO.readln().trim());
 
-                    Square square = new Square(side, filled);
+                    Square square = new Square(side, filled, color);
 
                     IO.println("\n--- SQUARE RESULTS ---");
-                    IO.println("Side: " + String.format("%.2f",square.getSide()));
-                    IO.println("Area: " + String.format("%.2f",square.CalculateArea()));
-                    IO.println("Perimeter: " + String.format("%.2f",square.CalculatePerimeter()));
+                    IO.println(square);
                     square.printSquare();
                     break;
 
@@ -98,8 +96,10 @@ public class ShapesCalculator {
                     IO.println("Enter width: ");
                     double width = Double.parseDouble(IO.readln().trim());
 
+                    IO.println("\n--- RECTANGLE RESULTS ---");
                     Rectangle rectangle = new Rectangle(length, width, filled, color);
                     IO.println(rectangle);
+                    rectangle.printRectangle();
                     break;
 
                 case 3://UNDERSTAND: This is for the Circle class
