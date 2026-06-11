@@ -106,12 +106,11 @@ public class ShapesCalculator {
                     IO.print("Enter radius: ");
                     int radius = Integer.parseInt(IO.readln().trim());
 
-                    Circle circle = new Circle(radius, filled);
+                    Circle circle = new Circle(radius, filled, color);
 
                     IO.println("\n--- CIRCLE RESULTS ---");
-                    IO.println("Radius: " + String.format("%.2f",circle.getRadius()));
-                    IO.println("Area: " + String.format("%.2f",circle.CalculateArea()));
-                    IO.println("Circumference: " + String.format("%.2f",circle.CalculateCircumference()));
+                    IO.println(circle);
+                    circle.printCircle();
                     break;
 
                 case 4:
@@ -211,8 +210,7 @@ public class ShapesCalculator {
                         double radius = Double.parseDouble(IO.readln().trim());
                         Sphere sphere = new Sphere(radius);
                         IO.println("\n--- SPHERE RESULTS ---");
-                        IO.println("Surface Area: " + String.format("%.2f", sphere.calculateSurfaceArea()));
-                        IO.println("Volume: " + String.format("%.2f", sphere.calculateVolume()));
+
                         break;
 
                     case 4:
@@ -222,9 +220,7 @@ public class ShapesCalculator {
                         double coneHeight = Double.parseDouble(IO.readln().trim());
                         RightCircularCone cone = new RightCircularCone(coneRadius, coneHeight);
                         IO.println("\n--- CONE RESULTS ---");
-                        IO.println("Slant Height: " + String.format("%.2f", cone.calculateSlantHeight()));
-                        IO.println("Surface Area: " + String.format("%.2f", cone.calculateSurfaceArea()));
-                        IO.println("Volume: " + String.format("%.2f", cone.calculateVolume()));
+
                         break;
 
                     case 5:
@@ -234,8 +230,7 @@ public class ShapesCalculator {
                         double cylHeight = Double.parseDouble(IO.readln().trim());
                         RightCircularCylinder cylinder = new RightCircularCylinder(cylRadius, cylHeight);
                         IO.println("\n--- CYLINDER RESULTS ---");
-                        IO.println("Surface Area: " + String.format("%.2f", cylinder.calculateSurfaceArea()));
-                        IO.println("Volume: " + String.format("%.2f", cylinder.calculateVolume()));
+
                         break;
                 }
             }

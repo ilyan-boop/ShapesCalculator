@@ -1,4 +1,4 @@
-class Circle {
+public class Circle extends Shape implements Measurable2D {
     //DATA FIELD (ATTRIBUTE)
     private double radius;
     private boolean filled;
@@ -7,14 +7,10 @@ class Circle {
     //CONSTRUCTORS
     //UNDERSTAND: These are the default values when no parameters are provided
     //DECISION: Use setter methods to reduce code length and make it easier to return to
-    Circle(){
-        setRadius(2.0);
-        setFilled(false);
-    }
-
-    Circle(double radius, boolean filled){
-        setRadius(radius);
-        setFilled(filled);
+    public Circle(double radius, boolean filled, String color) {
+        this.radius = radius;
+        this.filled = filled;
+        super(color);
     }
 
     //GETTER METHODS
@@ -43,13 +39,15 @@ class Circle {
 
     //CALCULATE AREA METHOD
     //UNDERSTAND: Returns the area of the circle
-    double CalculateArea(){
+    @Override
+    public double calculateArea(){
         return Math.PI * radius * radius;
     }
 
     //CALCULATE PERIMETER METHOD
     //UNDERSTAND: Returns the perimeter of the circle
-    double CalculateCircumference(){
+    @Override
+    public double calculatePerimeter(){
         return 2 * Math.PI * radius;
     }
 
@@ -91,5 +89,10 @@ class Circle {
             IO.println();
         }
         IO.println();
+    }
+    @Override
+    public String toString() {
+        // super.getColor() calls the getColor method inherited from Shape
+        return "Circle [Color = " + super.getColor() + ", Radius = " + radius + ", Filled = " + filled + "]";
     }
 }
