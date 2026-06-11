@@ -211,9 +211,9 @@ public class ShapesCalculator {
                     case 3:
                         IO.print("Enter radius of the sphere: ");
                         double radius = Double.parseDouble(IO.readln().trim());
-                        Sphere sphere = new Sphere(radius);
+                        Sphere sphere = new Sphere(radius, color);
                         IO.println("\n--- SPHERE RESULTS ---");
-
+                        IO.println(sphere);
                         break;
 
                     case 4:
@@ -223,7 +223,7 @@ public class ShapesCalculator {
                         double coneHeight = Double.parseDouble(IO.readln().trim());
                         RightCircularCone cone = new RightCircularCone(coneRadius, coneHeight, color);
                         IO.println("\n--- CONE RESULTS ---");
-
+                        IO.println(cone);
                         break;
 
                     case 5:
@@ -233,7 +233,7 @@ public class ShapesCalculator {
                         double cylHeight = Double.parseDouble(IO.readln().trim());
                         RightCircularCylinder cylinder = new RightCircularCylinder(cylRadius, cylHeight, color);
                         IO.println("\n--- CYLINDER RESULTS ---");
-
+                        IO.println(cylinder);
                         break;
                 }
             }

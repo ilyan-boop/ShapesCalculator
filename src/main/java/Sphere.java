@@ -1,13 +1,10 @@
-class Sphere {
+public class Sphere extends Shape implements Measurable3D {
     //DATA FIELD
     private double radius;
     //CONSTRUCTORS
-    Sphere() {
-        setRadius(1.0);
-    }
-
-    Sphere(double radius) {
-        setRadius(radius);
+    Sphere(double radius, String color){
+        this.radius = radius;
+        super(color);
     }
     //GETTERS
     double getRadius() { return radius; }
@@ -19,12 +16,16 @@ class Sphere {
         }
         this.radius = radius;
     }
-
-    double calculateSurfaceArea() {
+    @Override
+    public double calculateSurfaceArea() {
         return 4 * Math.PI * radius * radius;
     }
-
-    double calculateVolume() {
+    @Override
+    public double calculateVolume() {
         return (4.0 / 3.0) * Math.PI * radius * radius * radius;
+    }
+    @Override
+    public String toString(){
+        return "Sphere [Color = " + super.getColor() + ", Radius = " + radius + "]";
     }
 }
