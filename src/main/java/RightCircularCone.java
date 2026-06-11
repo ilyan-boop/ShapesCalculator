@@ -1,16 +1,12 @@
-class RightCircularCone {
+public class RightCircularCone extends Shape implements Measurable3D {
     //DATA FIELD
     private double radius;
     private double height;
     //CONSTRUCTORS
-    RightCircularCone() {
-        setRadius(4.0);
-        setHeight(4.0);
-    }
-
-    RightCircularCone(double radius, double height) {
-        setRadius(radius);
-        setHeight(height);
+    RightCircularCone(double radius, double height, String color){
+        this.radius = radius;
+        this.height = height;
+        super(color);
     }
     //GETTERS
     double getRadius()
@@ -40,12 +36,14 @@ class RightCircularCone {
         return Math.sqrt((radius * radius) + (height * height));
     }
 
-    double calculateSurfaceArea() {
+    @Override
+    public double calculateSurfaceArea() {
         double slantHeight = calculateSlantHeight();
         return (Math.PI * radius) + (Math.PI * radius * slantHeight);
     }
 
-    double calculateVolume() {
+    @Override
+    public double calculateVolume() {
         return (1.0 / 3.0) * Math.PI * radius * radius * height;
     }
 }

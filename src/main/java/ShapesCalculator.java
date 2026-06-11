@@ -181,6 +181,9 @@ public class ShapesCalculator {
                     continue;
                 }
 
+                IO.print("Color of the shape?: ");
+                String color = IO.readln().trim();
+
                 switch (choice) {
                     case 1:
                         IO.print("Enter side length of the cube: ");
@@ -218,7 +221,7 @@ public class ShapesCalculator {
                         double coneRadius = Double.parseDouble(IO.readln().trim());
                         IO.print("Enter height of the cone: ");
                         double coneHeight = Double.parseDouble(IO.readln().trim());
-                        RightCircularCone cone = new RightCircularCone(coneRadius, coneHeight);
+                        RightCircularCone cone = new RightCircularCone(coneRadius, coneHeight, color);
                         IO.println("\n--- CONE RESULTS ---");
 
                         break;
