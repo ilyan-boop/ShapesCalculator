@@ -1,6 +1,7 @@
 class Cube {
+    //DATA FIELD
     private double side;
-
+    //CONSTRUCTORS
     Cube() {
         setSide(1.0);
     }
@@ -8,7 +9,7 @@ class Cube {
     Cube(double side) {
         setSide(side);
     }
-
+    //GETTER
     double getSide() { return side; }
 
     void setSide(double side) {
@@ -18,7 +19,7 @@ class Cube {
         }
         this.side = side;
     }
-
+    //METHODS
     double calculateSurfaceArea() {
         return 6 * side * side;
     }

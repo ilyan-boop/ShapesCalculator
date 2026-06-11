@@ -87,10 +87,3 @@ class Rectangle {
         IO.println();
     }
 }
-
-void main() {
-    Rectangle r1 = new Rectangle(5.0, 10.0, false);
-    r1.printRectangle();
-    Rectangle r2 = new Rectangle(7.0, 3.0, true);
-    r2.printRectangle();
-}

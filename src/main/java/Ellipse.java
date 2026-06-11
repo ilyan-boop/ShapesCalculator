@@ -2,6 +2,7 @@ class Ellipse {
     //DATA FIELD (ATTRIBUTE)
     private double semiMajorAxis;
     private double semiMinorAxis;
+    private boolean filled;
 
     //CONSTRUCTORS
     //UNDERSTAND: These are the default values when no parameters are provided
@@ -9,11 +10,13 @@ class Ellipse {
     Ellipse(){
         setSemiMajorAxis(5.0);
         setSemiMinorAxis(2.0);
+        setFilled(false);
     }
 
-    Ellipse(double semiMajorAxis, double semiMinorAxis){
+    Ellipse(double semiMajorAxis, double semiMinorAxis, boolean filled) {
         setSemiMajorAxis(semiMajorAxis);
         setSemiMinorAxis(semiMinorAxis);
+        setFilled(filled);
     }
 
     //GETTER METHODS
@@ -23,6 +26,10 @@ class Ellipse {
 
     double getSemiMinorAxis() {
         return semiMinorAxis;
+    }
+
+    boolean isFilled() {
+        return filled;
     }
 
     //SETTER METHODS
@@ -45,6 +52,10 @@ class Ellipse {
         this.semiMinorAxis = semiMinorAxis;
     }
 
+    void setFilled(boolean filled) {
+        this.filled = filled;
+    }
+
     //CALCULATE AREA METHOD
     //UNDERSTAND: Returns the area of the ellipse
     double CalculateArea(){
@@ -60,5 +71,43 @@ class Ellipse {
         double b = semiMinorAxis;
         double h = ((a-b)*(a-b))/((a+b)*(a+b));
         return Math.PI * (a+b) * ((1+(3*h)/(10+Math.sqrt(4-3*h))));
+    }
+
+    void printEllipse(){
+        int a = (int) this.semiMajorAxis;
+        int b = (int) this.semiMinorAxis;
+
+        //UNDERSTAND: Similar to circle, the y-axis and x-axis is the negative and positive of the
+        //minor and major axis respectively
+        for (int y = -b; y <= b; y++) {
+            for (int x = -a; x <= a; x++) {
+
+                //UNDERSTAND: Standard ellipse formula
+                double normX = (double) x / a;
+                double normY = (double) y / b;
+                double ellipseValue = (normX * normX) + (normY * normY);
+
+                if (this.isFilled()) {
+                    if (ellipseValue <= 1.05) {
+                        IO.print("* ");
+                    } else {
+                        IO.print("  ");
+                    }
+                } else {
+                    //UNDERSTAND: Similar to the circle, it will print at the middle peaks of the ellipse
+                    if (Math.abs(y) == b && x == 0) {
+                        IO.print("* ");
+                    }
+                    //UNDERSTAND: These are the cutoff values to ensure the ellipse is hollow.
+                    else if (ellipseValue <= 1.1 && ellipseValue >= 0.65) {
+                        IO.print("* ");
+                    } else {
+                        IO.print("  ");
+                    }
+                }
+            }
+            IO.println();
+        }
+        IO.println();
     }
 }

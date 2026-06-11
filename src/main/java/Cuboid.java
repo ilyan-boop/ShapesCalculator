@@ -27,12 +27,24 @@ class Cuboid {
     }
     //SETTERS
     void setLength(double length) {
+        if (length <= 0) {
+            IO.println("Error! Length must be positive.");
+            return;
+        }
         this.length = length;
     }
     void setWidth(double width) {
+        if (width <= 0) {
+            IO.println("Error! Width must be positive.");
+            return;
+        }
         this.width = width;
     }
     void setHeight(double height) {
+        if (height <= 0) {
+            IO.println("Error! Height must be positive.");
+            return;
+        }
         this.height = height;
     }
     //METHODS

@@ -49,7 +49,7 @@ class Circle {
 
     //CALCULATE PERIMETER METHOD
     //UNDERSTAND: Returns the perimeter of the circle
-    double CalculatePerimeter(){
+    double CalculateCircumference(){
         return 2 * Math.PI * radius;
     }
 
@@ -92,11 +92,4 @@ class Circle {
         }
         IO.println();
     }
-}
-
-void main(){
-    Circle c1 = new Circle(5.0, true);
-    c1.printCircle();
-    Circle c2 = new Circle(5.0, false);
-    c2.printCircle();
 }

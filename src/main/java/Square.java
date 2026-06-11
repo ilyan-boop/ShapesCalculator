@@ -71,20 +71,15 @@ class Square {
             for (int x = 0; x < s; x++){
                 //UNDERSTAND: Check if is filled is true and at the edge
                 if (this.isFilled() ||  y == 0 || y == s -1 || x == 0 || x == s - 1){
-                    IO.println("* ");
+                    IO.print("* ");
                 } else {
-                    IO.println("  ");;
+                    IO.print("  ");
                 }
             }
-            IO.println();;
+            IO.println();
         }
         IO.println();
     }
 }
 
-void main() {
-    Square s1 = new Square(5.0, false);
-    Square s2 = new Square(5.0, true);
-    s1.printSquare();
-    s2.printSquare();
-}
+
