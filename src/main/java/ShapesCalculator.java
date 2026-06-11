@@ -75,6 +75,8 @@ public class ShapesCalculator {
             //DECISION: This was put here since it is common between all classes
             IO.print("Should the shape be filled? (true/false): ");
             boolean filled = Boolean.parseBoolean(IO.readln().trim());
+            IO.print("Color of the shape?: ");
+            String color = IO.readln().trim();
 
             switch (choice) {
                 case 1: //UNDERSTAND: This is for the Square class
@@ -96,13 +98,8 @@ public class ShapesCalculator {
                     IO.println("Enter width: ");
                     double width = Double.parseDouble(IO.readln().trim());
 
-                    Rectangle rectangle = new Rectangle(length, width, filled);
-                    IO.println("\n--- RECTANGLE RESULTS ---");
-                    IO.println("Length: " + String.format("%.2f",rectangle.getLength()));
-                    IO.println("Width: " + String.format("%.2f",rectangle.getWidth()));
-                    IO.println("Area: " + String.format("%.2f",rectangle.CalculateArea()));
-                    IO.println("Perimeter: " + String.format("%.2f",rectangle.CalculatePerimeter()));
-                    rectangle.printRectangle();
+                    Rectangle rectangle = new Rectangle(length, width, filled, color);
+                    IO.println(rectangle);
                     break;
 
                 case 3://UNDERSTAND: This is for the Circle class
@@ -115,7 +112,6 @@ public class ShapesCalculator {
                     IO.println("Radius: " + String.format("%.2f",circle.getRadius()));
                     IO.println("Area: " + String.format("%.2f",circle.CalculateArea()));
                     IO.println("Circumference: " + String.format("%.2f",circle.CalculateCircumference()));
-                    circle.printCircle();
                     break;
 
                 case 4:

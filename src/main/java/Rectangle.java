@@ -1,23 +1,16 @@
-class Rectangle {
+public class Rectangle extends Shape implements Measurable2D {
     //DATA FIELD (ATTRIBUTE)
     private double length;
     private double width;
     private boolean filled;
 
     //CONSTRUCTORS
-    //UNDERSTAND: These are the default values when no parameters are provided
-    //DECISION: Use setter methods to reduce code length and make it easier to return to
-    Rectangle(){
-        setLength(4.0);
-        setWidth(2.0);
-        setFilled(true);
-    }
-
-    Rectangle(double length, double width, boolean filled){
-        setLength(length);
-        setWidth(width);
-        setFilled(filled);
-    }
+  public Rectangle(double length, double width, boolean filled, String color) {
+      this.length = length;
+      this.width = width;
+      this.filled = filled;
+      super(color);
+  }
 
     //GETTER METHODS
     //DECISION: Following SRP, two methods were made for length and width respectively
@@ -60,23 +53,25 @@ class Rectangle {
 
     //CALCULATE AREA METHOD
     //UNDERSTAND: Returns the area of the rectangle
-    double CalculateArea(){
+    @Override
+    public double calculateArea(){
         return length * width;
     }
 
     //CALCULATE PERIMETER METHOD
     //UNDERSTAND: Returns the perimeter of the rectangle
-    double CalculatePerimeter(){
+    @Override
+    public double calculatePerimeter(){
         return 2 * (length + width);
     }
 
-    void printRectangle(){
+    void printRectangle() {
         int w = (int) this.width;
         int l = (int) this.length;
 
-        for(int y = 0; y < l; y++){
-            for(int x = 0; x < w; x++){
-                if (this.isFilled() ||  y == 0 || y == l -1 || x == 0 || x == w - 1){
+        for (int y = 0; y < l; y++) {
+            for (int x = 0; x < w; x++) {
+                if (this.isFilled() || y == 0 || y == l - 1 || x == 0 || x == w - 1) {
                     IO.print("* ");
                 } else {
                     IO.print("  ");
@@ -86,4 +81,10 @@ class Rectangle {
         }
         IO.println();
     }
+    @Override
+    public String toString() {
+        // super.getColor() calls the getColor method inherited from Shape
+        return "Rectangle[Color = " + super.getColor() + ", Width = " + width + ", Length = " +  length + ", Filled = " + filled + "]";
+    }
 }
+
