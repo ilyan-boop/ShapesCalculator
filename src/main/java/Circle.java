@@ -93,6 +93,7 @@ public class Circle extends Shape implements Measurable2D {
     @Override
     public String toString() {
         // super.getColor() calls the getColor method inherited from Shape
-        return "Circle [Color = " + super.getColor() + ", Radius = " + radius + ", Filled = " + filled + "]";
+        return "Color = " + super.getColor() + ", Radius = " + radius + ", Filled = " + filled + "\n"
+                +  "Perimeter = " + calculatePerimeter() +  ", Area = " + calculateArea();
     }
 }

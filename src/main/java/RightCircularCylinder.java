@@ -45,6 +45,7 @@ public class RightCircularCylinder extends Shape implements Measurable3D{
 
     @Override
     public String toString(){
-        return "Cylinder [Color = " + color + ", Radius = " + radius + ", Height = " + height + "]";
+        return "Cylinder [Color = " + color + ", Radius = " + radius + ", Height = " + height + "\n"
+                + "Surface Area = " + calculateSurfaceArea() +  ", Volume = " + calculateVolume();
     }
 }

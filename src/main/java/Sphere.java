@@ -26,6 +26,7 @@ public class Sphere extends Shape implements Measurable3D {
     }
     @Override
     public String toString(){
-        return "Sphere [Color = " + super.getColor() + ", Radius = " + radius + "]";
+        return "Color = " + super.getColor() + ", Radius = " + radius +  "\n"
+                + "Surface Area = " + calculateSurfaceArea() +  ", Volume = " + calculateVolume();
     }
 }

@@ -34,7 +34,8 @@ public class Square extends Rectangle {
     @Override
     public String toString() {
         // super.getColor() calls the getColor method inherited from Shape
-        return "Square [Color = " + super.getColor() + ", Side = " + super.getWidth() + ", Filled = " + super.isFilled() + "]";
+        return "Color = " + super.getColor() + ", Side = " + super.getWidth() + ", Filled = " + super.isFilled() + "\n" +
+                "Perimeter = " + super.calculatePerimeter() + ", Area = " + super.calculateArea();
     }
 }
 
